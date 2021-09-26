@@ -13,3 +13,5 @@ RUN bundle install
 ADD . $APP_HOME
 
 EXPOSE  3000
+
+# based on: https://noknow.info/it/os/build_with_docker_ruby_on_rails_mysql?lang=en

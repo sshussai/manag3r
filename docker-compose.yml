@@ -18,4 +18,4 @@ services:
     depends_on:
       - db
 
-# taken from: https://docs.docker.com/samples/rails/
+# based from: https://docs.docker.com/samples/rails/
