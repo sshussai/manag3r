@@ -57,11 +57,18 @@ EXPOSE  3000
 
 # based on: https://noknow.info/it/os/build_with_docker_ruby_on_rails_mysql?lang=en
 ```
-1. Create the rails app
+```
+# Gemfile
+source 'https://rubygems.org'
+
+gem 'rails', '6.1.4'
+```
+1. Create the above `Dockerfile`, `docker-compose.yml`, the `Gemfile` and an empty `Gemfile.lock` 
+2. Create the rails app
 `docker-compose run --no-deps web rails new . --force --database=postgresql`
-2. Build the image
+3. Build the image
 `docker-compose build`
-3. Update the database config
+4. Update the database config
 ```
 default: &default
   adapter: postgresql
@@ -82,9 +89,9 @@ test:
 
 # based on: https://docs.docker.com/samples/rails/
 ```
-4. Start the containers
+5. Start the containers
 `docker-compose up`
-5. Create the databases
+6. Create the databases
 `docker-compose run web rails db:create`
 
 The initial setup should be complete now
