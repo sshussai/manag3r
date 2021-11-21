@@ -133,7 +133,7 @@ Migrations can be run while the application containers are running.
 If the application containers are shut down, the migrations will need to be rerun when the application is started up again
 
 
-### Connecting to MySQL from the MySQL container
+### Connecting to PSQL from the PSQL container
 1. Access the Postgres container using bash
    `docker exec -it manag3r_db bash`
 2. Use the psql client to access Postgres 
