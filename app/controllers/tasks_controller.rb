@@ -35,7 +35,7 @@ class TasksController < ApplicationController
   # PUT projects/1/tasks/1
   def update
     if @task.update(task_params)
-      redirect_to([@task.project, @task], notice: 'Task was successfully updated.')
+      redirect_to @task.project
     else
       render action: 'edit'
     end
@@ -45,7 +45,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
 
-    redirect_to project_tasks_url(@project)
+    redirect_to @project
   end
 
   private
