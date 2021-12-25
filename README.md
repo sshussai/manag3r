@@ -148,3 +148,6 @@ Enter the password when prompted
    `psql -U postgres -h db `
 Enter the password when prompted
 
+### Connecting to Postgres using Rails dbconsole
+1. Run the following command to use Rails dbconsole from the web container
+   'docker-compose run web rails dbconsole'
