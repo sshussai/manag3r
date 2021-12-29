@@ -9,4 +9,12 @@ class Task < ApplicationRecord
     ['Competed', 'completed']
   ]
 
+  def complete?
+    status == 'completed'
+  end
+
+  def in_progress?
+    status == 'in-progress'
+  end
+
 end
