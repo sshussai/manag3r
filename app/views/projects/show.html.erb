@@ -1,12 +1,12 @@
-<%= link_to 'Back', projects_path, class: 'btn btn-light mb-3' %>
+<%= link_to 'Back', projects_path, class: 'btn btn-dark mb-3' %>
 
 <div class='card'>
   <div class='card-header mb-2'>
     <h2 class='card-title d-flex justify-content-between'>
       <span><%= @project.name %></span>
       <div>
-        <%= link_to 'Edit', edit_project_path(@project), class: 'btn btn-secondary' %>
-        <%= link_to 'Delete', @project, method: :delete, class: 'btn btn-light', data: { confirm: 'Are you sure?' }  %>
+        <%= link_to 'Edit', edit_project_path(@project), class: 'btn btn-info' %>
+        <%= link_to 'Delete', @project, method: :delete, class: 'btn btn-secondary', data: { confirm: 'Are you sure?' }  %>
       </div>
     </h2>
   </div>
@@ -45,8 +45,8 @@
           <div class='d-flex justify-content-between'>
             <%= item_badge(task) %>
             <div>
-              <%= link_to 'Edit', edit_project_task_path(task.project, task), class: 'btn btn-secondary btn-sm' %>
-              <%= link_to 'Delete', [task.project, task], method: :delete, class: 'btn btn-light btn-sm', data: { confirm: 'Are you sure?' }  %>
+              <%= link_to 'Edit', edit_project_task_path(task.project, task), class: 'btn btn-info btn-sm' %>
+              <%= link_to 'Delete', [task.project, task], method: :delete, class: 'btn btn-secondary btn-sm', data: { confirm: 'Are you sure?' }  %>
             </div>
           </div>
           <h5 class='card-title'><%= task.name %></h5>
