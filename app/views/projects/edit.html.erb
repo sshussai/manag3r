@@ -1,6 +1,13 @@
-<h1>Editing Project</h1>
+<%= link_to 'Back', @project, class: 'btn btn-dark mb-2' %>
 
-<%= render 'form', project: @project %>
+<div class='card'>
+  <div class='card-header mb-2'>
+    <h2 class='card-title'>
+      <span>Editing Project</span>
+    </h2>
+  </div>
 
-<%= link_to 'Show', @project %> |
-<%= link_to 'Back', projects_path %>
+  <div class='card-body'>
+    <%= render 'form', project: @project %>
+  </div>
+</div>
