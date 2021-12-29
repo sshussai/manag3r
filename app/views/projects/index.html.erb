@@ -10,7 +10,15 @@
     <%= link_to project, class: 'text-decoration-none m-2' do %>
       <div class='card project-card'>
         <div class='card-body'>
-          <%= item_badge(project) %>
+          <div class='mb-3'>
+            <%= item_badge(project) %>
+            <span class='text-dark'>
+              <small>
+                <%= project.percent_complete %>% completed
+                <%= completed_tasks(project) %>
+              </small>
+            </span>
+          </div>
           <h4 class='card-title text-dark'><%= project.name %></h4>
           <p class='text-secondary'><%= project.description %></p>
         </div>
