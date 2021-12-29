@@ -43,7 +43,7 @@
       <div class='card mb-3'>
         <div class='card-body'>
           <div class='d-flex justify-content-between'>
-            <span class='badge badge-primary mb-3'><%= task.status %></span>
+            <%= item_badge(task) %>
             <div>
               <%= link_to 'Edit', edit_project_task_path(task.project, task), class: 'btn btn-secondary btn-sm' %>
               <%= link_to 'Delete', [task.project, task], method: :delete, class: 'btn btn-light btn-sm', data: { confirm: 'Are you sure?' }  %>
