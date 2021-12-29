@@ -1,5 +1,14 @@
-<h1>New Project</h1>
+<%= link_to 'Back', projects_path, class: 'btn btn-dark mb-3' %>
 
-<%= render 'form', project: @project %>
+<div class='card'>
+  <div class='card-header mb-2'>
+    <h2 class='card-title'>
+      <span>New Project</span>
+    </h2>
+  </div>
 
-<%= link_to 'Back', projects_path %>
+  <div class='card-body'>
+    <%= render 'form', project: @project %>
+  </div>
+</div>
+

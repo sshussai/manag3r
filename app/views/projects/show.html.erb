@@ -1,19 +1,59 @@
-<p id="notice"><%= notice %></p>
+<%= link_to 'Back', projects_path, class: 'btn btn-dark mb-3' %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+<div class='card'>
+  <div class='card-header mb-2'>
+    <h2 class='card-title d-flex justify-content-between'>
+      <span><%= @project.name %></span>
+      <div>
+        <%= link_to 'Edit', edit_project_path(@project), class: 'btn btn-info' %>
+        <%= link_to 'Delete', @project, method: :delete, class: 'btn btn-secondary', data: { confirm: 'Are you sure?' }  %>
+      </div>
+    </h2>
+  </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+  <div class='card-body'>
+    <div class='mb-4'>
+      <h5>Add task</h5>
+      <%= form_with(model: [@task.project, @task]) do |f| %>
+        <% if @task.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
-<p>
-  <strong>User:</strong>
-  <%= @project.user_id %>
-</p>
+            <ul>
+            <% @task.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+        <%= f.hidden_field :status, value: 'not-started' %>
+        <div class="input-group">
+          <%= f.text_field :name, class: 'form-control', placeholder: 'Task Name...' %>
+          <div class="input-group-append">
+            <%= f.submit class: 'btn btn-primary' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <h3>Tasks</h3>
+
+    <% @project.existing_tasks.each do |task| %>
+      <div class='card mb-3'>
+        <div class='card-body'>
+          <div class='d-flex justify-content-between'>
+            <%= item_badge(task) %>
+            <div>
+              <%= link_to 'Edit', edit_project_task_path(task.project, task), class: 'btn btn-info btn-sm' %>
+              <%= link_to 'Delete', [task.project, task], method: :delete, class: 'btn btn-secondary btn-sm', data: { confirm: 'Are you sure?' }  %>
+            </div>
+          </div>
+          <h5 class='card-title'><%= task.name %></h5>
+          <p><%= task.description %></p>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+</div>
