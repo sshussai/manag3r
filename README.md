@@ -1,4 +1,5 @@
 # README
+i'm changing this 
 
 ## About
 This a RoR project management app. It can keep track of multiple projects, displaying their tasks and statuses, and more.
